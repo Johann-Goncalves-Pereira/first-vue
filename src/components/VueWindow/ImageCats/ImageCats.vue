@@ -3,8 +3,7 @@ import { ref, watchEffect, toValue } from 'vue'
 
 const headers = new Headers({
 	'Content-Type': 'application/json',
-	'x-api-key':
-		'live_rAEsQUwaVunMfgWBSHm4FzbQ4IStKyUre9ZdpZB5Wm3xWinphIcQeJmsPyjItnba',
+	'x-api-key': process.env.VUE_APP_API_CATS_TOKEN,
 })
 
 const requestOptions = {
