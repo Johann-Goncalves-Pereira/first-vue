@@ -27,18 +27,21 @@ function handleCloseDialogOutOfBound(
 	event: MouseEvent,
 	element: HTMLDialogElement,
 ) {
-	const dimensions = element.getBoundingClientRect()
+	if (element instanceof HTMLDialogElement) {
+		const dimensions = element.getBoundingClientRect()
 
-	if (
-		event.clientX < dimensions.left ||
-		event.clientX > dimensions.right ||
-		event.clientY < dimensions.top ||
-		event.clientY > dimensions.bottom
-	) {
-		element.close()
-		event.preventDefault()
+		if (
+			event.clientX < dimensions.left ||
+			event.clientX > dimensions.right ||
+			event.clientY < dimensions.top ||
+			event.clientY > dimensions.bottom
+		) {
+			element.close()
+			event.preventDefault()
+		}
 	}
 }
+
 function handleCloseDialog(event: Event) {
 	if (windowRef.value) {
 		windowRef.value.close()

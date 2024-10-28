@@ -3,7 +3,7 @@ import VueWindow from './VueWindow/VueWindow.vue'
 </script>
 
 <template>
-	<VueWindow id="vue-window-app" />
+	<VueWindow />
 </template>
 
 <style lang="scss" scoped>
