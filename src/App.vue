@@ -6,10 +6,12 @@ const light = reactive({ x: 0, y: 0 })
 
 // Update light position based on mouse position
 window.addEventListener('mousemove', (ev: MouseEvent) => {
-	const el: HTMLElement = document.querySelector('.light')
+	const el = document.querySelector('.light') as HTMLElement
 
-	light.x = ev.clientX - el.offsetWidth * 0.5
-	light.y = ev.clientY - el.offsetHeight * 0.5
+	if (el) {
+		light.x = ev.clientX - el.offsetWidth * 0.5
+		light.y = ev.clientY - el.offsetHeight * 0.5
+	}
 })
 </script>
 

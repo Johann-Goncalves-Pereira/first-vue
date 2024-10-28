@@ -9,11 +9,11 @@ const todos = reactive([
 	{ id: 3, text: 'Learn Vue' },
 ])
 
-function handleSubmit(element: HTMLFormElement) {
-	element.preventDefault()
+function handleSubmit(event: Event) {
+	event.preventDefault()
 }
 
-function handleInput(event: InputEvent) {
+function handleInput(event: Event) {
 	const text = (event.target as HTMLInputElement).value
 
 	input.value = text
@@ -30,8 +30,8 @@ function handleAddTodo() {
 	input.value = ''
 }
 
-function handleRemoveTodo(idByIndex: number) {
-	todos.splice(todos.indexOf(idByIndex), 1)
+function handleRemoveTodo(props: { id: number; text: string }) {
+	todos.splice(todos.indexOf(props), 1)
 }
 </script>
 

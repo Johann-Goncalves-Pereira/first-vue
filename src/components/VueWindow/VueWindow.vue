@@ -5,12 +5,14 @@ import { X, Minus, Expand } from 'lucide-vue-next'
 import TodoList from './TodoList/TodoList.vue'
 import ImageCats from './ImageCats/ImageCats.vue'
 
-const windowRef = ref(null)
+const windowRef = ref<HTMLDialogElement | null>(null)
 const expand = ref(false)
 const tab = ref<'todo' | 'cats'>('todo')
 
 onMounted(() => {
-	windowRef.value = document.getElementById('vue-window-app')
+	windowRef.value = document.getElementById(
+		'vue-window-app',
+	) as HTMLDialogElement | null
 })
 
 function handleShowModal() {
@@ -21,7 +23,10 @@ function handleShowModal() {
 	})
 }
 
-function handleCloseDialogOutOfBound(event: MouseEvent, element: HTMLElement) {
+function handleCloseDialogOutOfBound(
+	event: MouseEvent,
+	element: HTMLDialogElement,
+) {
 	const dimensions = element.getBoundingClientRect()
 
 	if (
@@ -34,7 +39,7 @@ function handleCloseDialogOutOfBound(event: MouseEvent, element: HTMLElement) {
 		event.preventDefault()
 	}
 }
-function handleCloseDialog() {
+function handleCloseDialog(event: Event) {
 	if (windowRef.value) {
 		windowRef.value.close()
 		event.preventDefault()
@@ -60,12 +65,14 @@ function handleTab(tabName: 'todo' | 'cats') {
 		class="vue-window__dialog"
 		:class="{ expand: expand }"
 		id="vue-window-app"
-		@click="handleCloseDialogOutOfBound($event, $event.target)"
+		@click="
+			handleCloseDialogOutOfBound($event, $event.target as HTMLDialogElement)
+		"
 	>
 		<header class="header">
 			<div class="header__window-control">
-				<button class="button" @click="handleCloseDialog"><X /></button>
-				<button class="button" @click="handleCloseDialog">
+				<button class="button" @click="handleCloseDialog($event)"><X /></button>
+				<button class="button" @click="handleCloseDialog($event)">
 					<Minus />
 				</button>
 				<button class="button" @click="() => (expand = !expand)">
