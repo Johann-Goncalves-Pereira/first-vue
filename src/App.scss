@@ -11,10 +11,10 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 0;
+	z-index: -10;
 	filter: blur(96px);
-
-	transition: transform 200ms ease-out;
+	transition-duration: 200ms;
+	transition-property: transform;
 	border-radius: 200vmax;
 	background-color: var(--teal-8);
 	width: 5rem;
