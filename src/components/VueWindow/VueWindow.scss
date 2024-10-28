@@ -12,8 +12,8 @@
 	}
 
 	&__dialog[open] {
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-auto-rows: max-content;
 		margin: auto;
 		border: 1px solid var(--gray-9);
 		border-radius: 1rem;
