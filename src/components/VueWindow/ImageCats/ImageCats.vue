@@ -54,12 +54,7 @@ const { data, error } = useFetch(catURL)
 		<button @click="reFetch">New Cat</button>
 
 		<p v-if="error">Error: {{ error }}</p>
-<<<<<<< HEAD
-		<!-- <img v-else-if="data" alt="Gif" :src="data[0].url" /> -->
-		<img v-else-if="data" alt="Gif" :src="data[0].url" />
-=======
 		<img v-else-if="data" alt="Cat images" :src="data[0].url" />
->>>>>>> 01c30e2 (feat: my first project in vue)
 		<p v-else>Loading...</p>
 	</div>
 </template>
