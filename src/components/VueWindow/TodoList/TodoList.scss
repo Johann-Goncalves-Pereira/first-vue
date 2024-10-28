@@ -1,0 +1,58 @@
+form {
+	display: grid;
+	gap: 1rem;
+	padding: 1rem;
+
+	.control {
+		display: flex;
+		gap: 1rem;
+
+		input {
+			padding: 0.5rem 1rem;
+		}
+
+		button {
+			color: var(--teal-7);
+
+			&.disabled {
+				cursor: not-allowed;
+				color: var(--gray-5);
+			}
+		}
+	}
+
+	.list {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+		padding: 0;
+		list-style: none;
+
+		li {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			cursor: default;
+
+			border-bottom: 1px solid var(--gray-9);
+			padding: 1rem;
+			width: fit-content;
+
+			&:hover,
+			&:focus-within {
+				button {
+					opacity: 1;
+				}
+			}
+
+			button {
+				opacity: 0;
+
+				transition: opacity 200ms ease-in;
+				background-color: transparent;
+				padding: 0.25rem 0.5rem;
+				color: var(--red-6);
+			}
+		}
+	}
+}

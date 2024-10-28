@@ -1,0 +1,22 @@
+.main {
+	display: grid;
+	place-items: center;
+	z-index: 10;
+
+	width: 100dvw;
+	height: 100dvh;
+}
+
+.light {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	filter: blur(96px);
+
+	transition: transform 200ms ease-out;
+	border-radius: 200vmax;
+	background-color: var(--teal-8);
+	width: 5rem;
+	height: 5rem;
+}
